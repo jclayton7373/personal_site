@@ -362,19 +362,18 @@ form {
         height: 40px;
     }
 
-    #name, #email, #message {
-        &:focus {
-            background-color: #ffffff4f;
-        }
-    }
-
     #submit {
         cursor: pointer;
         //transition: background-color 0.3s, color 0.3s;
         width: 608px;
 
-        &:hover, &.clicked, &:focus {
+        &:hover, &.clicked, &:focus, &.submitable:hover {
             background-color: var(--accent-color-1);
+            color: var(--accent-color-3);
+        }
+
+        &.submitable {
+            background-color: color-mix(in srgb, var(--accent-color-1) , rgba(255, 255, 255, 0.75));
             color: var(--accent-color-3);
         }
     }

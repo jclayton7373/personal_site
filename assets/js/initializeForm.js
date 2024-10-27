@@ -13,6 +13,17 @@ export default class FormInitializer {
             return;
         }
 
+        const allFieldsFilledFunc = this.allFieldsFilled.bind(this);
+
+        $("input, textarea").on("input", function () {
+            if (allFieldsFilledFunc()) {
+                $("#submit").addClass('submitable');
+            } else {
+                $("#submit").removeClass('submitable');
+
+            }
+        });
+
         this.form.addEventListener('submit', (event) => {
             $("#submit").addClass('clicked');
             $("#submit").attr("value", "...");
@@ -23,6 +34,7 @@ export default class FormInitializer {
 
     submitted() {
         $("#submit").removeClass('clicked');
+        this.form.reset();
         $("#submit").attr("value", "submitted!");
         setTimeout(() => {
             $("#submit").attr("value", "submit!");
@@ -37,16 +49,19 @@ export default class FormInitializer {
         }, 3000);
     }
 
-    async handleSubmit() {
+    allFieldsFilled() {
         const formData = new FormData(this.form);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
+        return Object.entries(data).every(([_key, value]) => {
+            return value !== '';
+        })
+    }
 
-        if (Object.entries(data).some(([key, value]) => {
-            return value === '';
-        })) {
+    async handleSubmit() {
+        if (!this.allFieldsFilled()) {
             this.notSubmitted();
             return;
         }
