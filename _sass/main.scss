@@ -1,0 +1,476 @@
+/* styles.css */
+
+/* variables */
+$nav-width: 300px;
+$nav-padding-left: 50px;
+$nav-padding-right: 50px;
+$body-width: 600px;
+$z-index: 1000;
+$z-index-color-picker: 1040;
+$z-index-color-picker-background: 1020;
+
+/** fonts */
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+
+// .arimo-<uniquifier > {
+//     font-family: "Arimo", sans-serif;
+//     font-optical-sizing: auto;
+//     font-weight: <weight>;
+//     font-style: normal;
+// }
+
+.rowdies-light {
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.rowdies-regular {
+    font-family: "Rowdies", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rowdies-bold {
+    font-family: "Rowdies", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/** css variables */
+:root {
+    --main-color: #c1c1c1;
+    --accent-color-1: #c1c1c1;
+    --text-color: #c1c1c1;
+    --accent-color-2: #c1c1c1;
+    --accent-color-3: #c1c1c1;
+}
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    //transition: color 0.3s, background-color 0.3s;
+
+    &.overflow-hidden {
+        overflow: hidden;
+    }
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation styles */
+nav {
+    z-index: $z-index;
+
+    background-color: var(--main-color);
+    color: var(--accent-color-2);
+    //transition: color 0.3s, background-color 0.3s;
+    padding: 40px $nav-padding-right 0 $nav-padding-left;
+    text-align: center;
+    width: $nav-width;
+    position: fixed;
+
+    a {
+        color: var(--accent-color-2);
+        //transition: color 0.3s, background-color 0.3s;
+        display: block;
+        margin: 20px 0;
+        text-decoration: none;
+        font-size: 30px;
+
+        font-family: "Arimo", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+
+        &:hover {
+            color: var(--accent-color-3);
+            //transition: none;
+            font-weight: 700;
+        }
+    }
+}
+
+/* Main content styles */
+main {
+    z-index: $z-index;
+
+    padding: 20px;
+    margin-left: $nav-width + $nav-padding-left + $nav-padding-right;
+
+    font-family: "Arimo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    max-width: $body-width;
+
+    p {
+        text-indent: 20px;
+        font-size: 20px;
+        line-height: 1.5;
+        padding-left: 20px;
+    }
+
+    h2 {
+        color: var(--accent-color-1);
+        //transition: color 0.3s;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 70px;
+    }
+
+    a {
+        color: var(--accent-color-2);
+        //transition: color 0.3s;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--accent-color-3);
+            //transition: none;
+        }
+    }
+}
+
+/* Footer styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    cursor: pointer;
+
+    #colorBlockContainer {
+        padding: 10px;
+        background-color: rgba(20, 20, 20, 0.1);
+        border-radius: 4px;
+    }
+
+    &:hover {
+        background-color: rgba(20, 20, 20, 0.3);
+    }
+
+    span {
+        height: 25px;
+        width: 25px;
+        background-color: var(--accent-color-1);
+        //transition: background-color 0.3s;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: inset 0px 0px 0px 3px rgba(218, 218, 218, 0.48);
+
+        &#color-block-1 {
+            background-color: var(--main-color);
+        }
+        &#color-block-2 {
+            background-color: var(--text-color);
+        }
+        &#color-block-3 {
+            background-color: var(--accent-color-1);
+        }
+        &#color-block-4 {
+            background-color: var(--accent-color-2);
+        }
+        &#color-block-5 {
+            background-color: var(--accent-color-3);
+        }
+    }
+}
+
+/* Color Picker */
+#colorPicker {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(255 255 255 / 40%);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    z-index: $z-index-color-picker;
+    justify-content: space-between;
+    display: none;
+
+    &.active {
+        display: flex;
+    }
+
+    .colorPickerRow {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+    }
+ 
+    span {
+        height: 30px;
+        width: 30px;
+        background-color: var(--accent-color-1);
+        //transition: background-color 0.3s;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: inset 0px 0px 0px 3px rgba(218, 218, 218, 0.60);
+        
+
+        &#color-block-1 {
+            background-color: var(--main-color);
+        }
+        &#color-block-2 {
+            background-color: var(--text-color);
+        }
+        &#color-block-3 {
+            background-color: var(--accent-color-1);
+        }
+        &#color-block-4 {
+            background-color: var(--accent-color-2);
+        }
+        &#color-block-5 {
+            background-color: var(--accent-color-3);
+        }
+    }
+
+    input {
+
+        &.textInput {
+            width: 70px;
+            text-align: center;
+            padding: 1px;
+            margin-left: 10px;
+    
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        &.colorPickerInput {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        &.is-invalid {
+            outline-color: #bf2828 !important;
+        }
+
+        &#color-input-1 {
+            outline-color: var(--main-color);
+        }
+
+        &#color-input-2 {
+            outline-color: var(--text-color);
+        }
+
+        &#color-input-3 {
+            outline-color: var(--accent-color-1);
+        }
+
+        &#color-input-4 {
+            outline-color: var(--accent-color-2);
+        }
+
+        &#color-input-5 {
+            outline-color: var(--accent-color-3);
+        }
+    }
+
+    li {
+        margin: 10px;
+        padding: 5px;
+        background-color: var(--main-color);
+        border-radius: 4px;
+    }
+
+    .colorPreset {
+        display: block;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            color: var(--accent-color-3);
+        }
+
+        &#randomColor { 
+            margin-top: 20px;
+            border: 2px solid var(--accent-color-1);
+        }
+    }
+}
+
+#colorPickerPresets {
+    margin-right: 20px;
+}
+
+#presetsLabel, #customLabel {
+    font-size: 24px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+#themeButtons {
+    font-size: 18px;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0px;
+
+    .presets {
+        height: 150px;
+        overflow: scroll;
+        -webkit-mask-image: linear-gradient(black 90%, transparent 100%);
+        mask-image: linear-gradient(black 90%, transparent 100%);
+    }
+}
+
+
+#colorPickerBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-color-picker-background;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+form {
+    input, textarea {
+        background-color: #FFFFFF1A;
+        border: #00000012 2px solid;
+        color: var(--accent-color-1);
+    }
+
+    #name, #email, #message, #submit {
+        font-size: 16px;
+        margin: 10px 0;
+        border-radius: 4px;
+        outline-color: var(--accent-color-3);
+        font-family: monospace;
+        width: 600px;
+        height: 40px;
+    }
+
+    #name, #email, #message {
+        &:focus {
+            background-color: #ffffff4f;
+        }
+    }
+
+    #submit {
+        cursor: pointer;
+        //transition: background-color 0.3s, color 0.3s;
+        width: 608px;
+
+        &:hover, &.clicked, &:focus {
+            background-color: var(--accent-color-1);
+            color: var(--accent-color-3);
+        }
+    }
+
+    #message {
+        height: 200px;
+        resize: none;
+    }
+}
+
+@keyframes color-scroll {
+    0% {
+        fill: var(--accent-color-1);
+        stroke: var(--accent-color-3);
+    }
+    33% {
+        fill: var(--accent-color-2);
+        stroke: var(--accent-color-1);
+    }
+    67% {
+        fill: var(--accent-color-3);
+        stroke: var(--accent-color-2);
+    }
+    100% {
+        fill: var(--accent-color-1);
+        stroke: var(--accent-color-3);
+    }
+  }
+
+svg {
+
+    fill: var(--main-color);
+    stroke: var(--text-color);
+    cursor: pointer;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    stroke-width: 22;
+
+    //transition: stroke 0.3s, fill 0.3s;
+
+    &#nameVector {
+        width: 300px;
+        height: 200px;
+
+        fill: var(--accent-color-1);
+        stroke: var(--accent-color-3);
+        stroke-width: 90;
+
+        &.animated {
+            animation: color-scroll 1s infinite linear;
+        }
+    }
+
+    &#heartVector {
+        &:hover {
+            fill: var(--accent-color-2);
+            stroke: var(--accent-color-1);
+            //transition: stroke 0.2s, fill 0.2s;
+        }
+        width: 23px;
+        height: 23px;
+        cursor: default;
+    }
+}
+
+#resume {
+    h3 {
+        color: var(--text-color);
+        //transition: color 0.3s;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    h4 {
+        color: var(--text-color);
+        //transition: color 0.3s;
+        font-size: 18px;
+        font-weight: 500;
+
+        span {
+            color: var(--accent-color-3);
+            //transition: color 0.3s;
+            font-size: 14px;
+            font-weight: 300;
+            margin-left: 10px;
+        }
+    }
+
+    p {
+        color: var(--text-color);
+        font-size: 16px;
+        line-height: 1.5;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        border-bottom: .5px solid var(--accent-color-3);
+    }
+}
