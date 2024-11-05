@@ -100,17 +100,24 @@ nav {
 }
 
 /* Main content styles */
+
+#mainWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 $nav-width + $nav-padding-left + $nav-padding-right;
+    min-width: $body-width;
+}
+
 main {
     z-index: $z-index;
 
     padding: 20px;
-    margin-left: $nav-width + $nav-padding-left + $nav-padding-right;
 
     font-family: "Arimo", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    max-width: $body-width;
+    width: $body-width;
 
     p {
         text-indent: 20px;
