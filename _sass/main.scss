@@ -547,3 +547,18 @@ svg {
         border-bottom: .5px solid var(--accent-color-3);
     }
 }
+
+.stickerClick {
+    position: absolute;
+
+    svg {
+        transform: translate(-50%, -50%);
+        fill: var(--accent-color-3);
+        stroke: var(--accent-color-1);
+    }
+}
+
+.stickerFadeOut {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
