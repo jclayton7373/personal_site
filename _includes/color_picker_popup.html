@@ -1,0 +1,57 @@
+<div id="colorPicker">
+    <div id="colorPickerPresets">
+        <div id="presetsLabel">Presets</div>
+        <ul id="themeButtons">
+            <div class="presets">
+                {% for theme in site.data.themes %}
+                    <li
+                        class="colorPreset"
+                        data-main-color="{{ theme.mainColor }}"
+                        data-text-color="{{ theme.textColor }}"
+                        data-accent-color-1="{{ theme.accentColor1 }}"
+                        data-accent-color-2="{{ theme.accentColor2 }}"
+                        data-accent-color-3="{{ theme.accentColor3 }}">
+                        {{ theme.name }}
+                    </li>
+                {% endfor %}
+            </div>
+            <li
+                class="colorPreset"
+                id="randomColor"
+            >
+                randomize!
+            </li>
+        </ul>
+    </div>
+    <div>
+        <div id="customLabel">Custom</div>
+        <div class="colorPickerRow">
+            <span id="color-block-1">&nbsp</span>
+            <input type="color" class="colorPickerInput" id="color-picker-1" value="#000000" />
+            <input type="text" class="textInput" id="color-input-1" value="#000000" />
+        </div>
+        <div class="colorPickerRow">
+            <span id="color-block-2">&nbsp</span>
+            <input type="color" class="colorPickerInput" id="color-picker-2" value="#000000" />
+
+            <input type="text" class="textInput" id="color-input-2" value="#000000" />
+        </div>
+        <div class="colorPickerRow">
+            <span id="color-block-3">&nbsp</span>
+            <input type="color" class="colorPickerInput" id="color-picker-3" value="#000000" />
+            <input type="text" class="textInput" id="color-input-3" value="#000000" />
+        </div>
+        <div class="colorPickerRow">
+            <span id="color-block-4">&nbsp</span>
+            <input type="color" class="colorPickerInput" id="color-picker-4" value="#000000" />
+            <input type="text" class="textInput" id="color-input-4" value="#000000" />
+        </div>
+        <div class="colorPickerRow">
+            <span id="color-block-5">&nbsp</span>
+            <input type="color" class="colorPickerInput" id="color-picker-5" value="#000000" />
+            <input type="text" class="textInput" id="color-input-5" value="#000000" />
+        </div>
+    </div>
+    </div>
+</div>
+<div id="colorPickerBackground"></div>

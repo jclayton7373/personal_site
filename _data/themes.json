@@ -1,0 +1,58 @@
+[
+    {
+        "name": "primary",
+        "mainColor": "#f4f4f4",
+        "textColor": "#333333",
+        "accentColor1": "#bf2828",
+        "accentColor2": "#2a636a",
+        "accentColor3": "#f0c123"
+    },
+    {
+        "name": "kendalls theme",
+        "mainColor": "#4f352c",
+        "textColor": "#f0c7ed",
+        "accentColor1": "#f05482",
+        "accentColor2": "#c8db64",
+        "accentColor3": "#f4f4f4"
+    },
+    {
+        "name": "espresso",
+        "mainColor": "#422300",
+        "textColor": "#f7f0c5",
+        "accentColor1": "#9e5b2e",
+        "accentColor2": "#ab9154",
+        "accentColor3": "#bdaa75"
+    },
+    {
+        "name": "denim",
+        "mainColor": "#2c4968",
+        "textColor": "#f0fcff",
+        "accentColor1": "#5d97bb",
+        "accentColor2": "#f9e6be",
+        "accentColor3": "#120052"
+    },
+    {
+        "name": "circus",
+        "mainColor": "#d40a20",
+        "textColor": "#6aacd2",
+        "accentColor1": "#8903f1",
+        "accentColor2": "#36964e",
+        "accentColor3": "#fbe73c"
+    },
+    {
+        "name": "night time",
+        "mainColor": "#212121",
+        "textColor": "#fef5ff",
+        "accentColor1": "#918383",
+        "accentColor2": "#765e78",
+        "accentColor3": "#ffcccc"
+    },
+    {
+        "name": "boy colors",
+        "mainColor": "#3351d1",
+        "textColor": "#9bbdf8",
+        "accentColor1": "#D0053c",
+        "accentColor2": "#6988bf",
+        "accentColor3": "#eaa9bd"
+    }
+]
