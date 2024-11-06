@@ -34,6 +34,7 @@ class StickerClick {
     }
 
     handleClick(event) {
+        console.log(event.target.nodeName);
         // Create a new image element
         const img = document.createElement('div');
         const randomIndex = Math.floor(Math.random() * this.stickerSources.length);

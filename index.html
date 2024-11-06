@@ -52,7 +52,7 @@
             <p>
                 when i am not at my computer - i am also a tap dancer in the
                 boston-based tap company,
-                <a href="subjectmattertap.com"> subject:matter. </a>
+                <a href="https://subjectmattertap.com"> subject:matter. </a>
             </p>
 
             {% include section_header.html section_link="#experience" section_title="Experience" %}
@@ -98,11 +98,17 @@
                     <input type="submit" id="submit" value="submit!"/> 
 
             </form>
-            <a href="mailto:jacksonclayton00@gmail.com">jacksonclayton00@gmail.com</a>
-            <a href="github.com/jacksonclayton">github.com/jacksonclayton</a>
-            <a href="linkedin.com/in/jacksonclayton"
-                >linkedin.com/in/jacksonclayton</a
-            >
+            <p>or, if you prefer, you can reach me at:</p>
+            <div class="socialLink">
+                <a href="mailto:jacksonclayton00@gmail.com">{% include socials/email.svg %} jacksonclayton00@gmail.com</a>
+            </div>
+            <div class="socialLink">
+                <a href="https://linkedin.com/in/jacksonclayton">
+                    {% include socials/linkedin.svg %}
+                    linkedin.com/in/jacksonclayton
+                </a>
+            </div>
+            
         </main>
 </div>
         <footer>
