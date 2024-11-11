@@ -1,18 +1,32 @@
 class MobileNavToggle {
     constructor() {
-        this.toggleButton = document.getElementById("mobileNavToggle");
-        this.navMenu = document.getElementById("mobileNav");
+        this.toggleButton = $("#mobileNavToggle");
+        this.navMenu = $("#mobileNav");
         this.init();
     }
 
     init() {
         if (this.toggleButton && this.navMenu) {
-            this.toggleButton.addEventListener('click', () => this.toggleNav());
+            this.toggleButton.on('click', () => this.toggleNav());
         }
     }
 
     toggleNav() {
-        this.navMenu.classList.toggle('open');
+        $('body').toggleClass('overflow-hidden');
+        this.toggleButton.toggleClass('open');
+        if (this.navMenu.hasClass('open')) {
+            this.navMenu.addClass('animateOut')
+            setTimeout(() => {
+                this.navMenu.removeClass('open');
+                this.navMenu.removeClass('animateOut');
+            }, 300);
+        }
+        else {
+            this.navMenu.addClass('animateIn open');
+            setTimeout(() => {
+                this.navMenu.removeClass('animateIn');
+            }, 300);
+        }
     }
 }
 

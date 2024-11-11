@@ -420,6 +420,17 @@ svg {
     }
 }
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 #mobileNav {
     display: none;
     position: fixed;
@@ -431,11 +442,20 @@ svg {
     color: var(--accent-color-2);
     transition: color 0.3s, background-color 0.3s;
     z-index: $z-index-mobile-nav;
+    flex-direction: column;
+    align-items: center;
     
     &.open {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+    }
+    
+    &.animateIn {
+        animation: fadeInUp 0.3s ease;
+    }
+
+    &.animateOut {
+        opacity: 0;
+        animation: fadeInUp 0.3s ease reverse;
     }
 
     a {
@@ -466,7 +486,38 @@ svg {
 
 #mobileNavToggle {
     position: fixed;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     z-index: $z-index-mobile-nav-toggle;
+    color: var(--accent-color-3);
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+
+    span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: var(--accent-color-2);
+        margin: 6px auto;
+        transition: background-color 0.3s;
+        border-radius: 3px;
+        transition: all .3s ease;
+    }
+
+    &.open {
+        span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+    
+        span:nth-child(2) {
+            opacity: 0;
+        }
+    
+        span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+    }
+
+
 }

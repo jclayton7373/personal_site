@@ -38,6 +38,7 @@ export default class FormInitializer {
         $("#submit").attr("value", "submitted!");
         setTimeout(() => {
             $("#submit").attr("value", "submit!");
+            $("#submit").removeClass('submitable');
         }, 3000);
     }
 
@@ -67,6 +68,12 @@ export default class FormInitializer {
         }
 
         var submittedFunc = this.submitted.bind(this);
+        
+        const formData = new FormData(this.form);
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
 
         $.ajax({
             url: this.URL,
