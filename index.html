@@ -20,10 +20,13 @@
             href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
             rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Geologica:wght@100..900&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sanchez:ital@0;1&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             {% include desktop_navigation.html %}
+
+            {% include mobile_navigation.html %}
         </header>
         <div id="mainWrapper" >
         <main>
@@ -37,7 +40,7 @@
 
             {% include header_drawing.svg %}
 
-            {% include section_header.html section_link="#about" section_title="About" %}
+            {% include section_header.html section_link="about" section_title="ABOUT" %}
 
             <p>
                 i am a software engineer currently employed at etsy. i graduated from
@@ -55,7 +58,7 @@
                 <a href="https://subjectmattertap.com"> subject:matter. </a>
             </p>
 
-            {% include section_header.html section_link="#experience" section_title="Experience" %}
+            {% include section_header.html section_link="experience" section_title="EXPERIENCE" %}
             
             <div id="experience">
                 <h4> Etsy <span class="timeInRole"> August 2023 - Present </span></h4>
@@ -80,11 +83,11 @@
                 </p>
             </div>
 
-            {% include section_header.html section_link="#projects" section_title="Projects" %}
+            {% include section_header.html section_link="projects" section_title="PROJECTS" %}
 
             <p>more info coming here soon...</p>
 
-            {% include section_header.html section_link="#contact" section_title="Contact" %}
+            {% include section_header.html section_link="contact" section_title="CONTACT" %}
 
             <p> i would love to hear from you! if you'd like, please fill out this form to get in touch and i will get back to you soon!</p>
             <form id="contactForm">
@@ -108,10 +111,16 @@
                     linkedin.com/in/jacksonclayton
                 </a>
             </div>
+            <div class="socialLink">
+                <a href="https://instagram.com/in/jaxxonlayton">
+                    {% include socials/ig.svg %}
+                    instagram.com/jaxxonlayton
+                </a>
+            </div>
             
         </main>
 </div>
-        <footer>
+        <footer id="desktopColorBlocks">
             <div id="colorBlockContainer">
                 <span id="color-block-1">&nbsp</span>
                 <span id="color-block-2">&nbsp</span>

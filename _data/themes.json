@@ -16,6 +16,14 @@
         "accentColor3": "#f4f4f4"
     },
     {
+        "name": "livs theme",
+        "mainColor": "#512d38",
+        "textColor": "#eff7cf",
+        "accentColor1": "#5ca4a9",
+        "accentColor2": "#ae76a6",
+        "accentColor3": "#ff3c38"
+    },
+    {
         "name": "espresso",
         "mainColor": "#422300",
         "textColor": "#f7f0c5",

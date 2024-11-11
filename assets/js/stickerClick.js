@@ -30,7 +30,7 @@ class StickerClick {
     }
 
     init() {
-        document.addEventListener('click', this.handleClick.bind(this));
+        //document.addEventListener('click', this.handleClick.bind(this));
     }
 
     handleClick(event) {
