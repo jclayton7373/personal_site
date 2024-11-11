@@ -84,11 +84,12 @@ header h1 {
 
 /* Main content styles */
 #mainWrapper {
+    justify-content: center;
+
     @media (min-width: $min-screen-width) {
         display: flex;
     }
     
-    justify-content: center;
 }
 
 main {
@@ -99,6 +100,7 @@ main {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+    width: $body-width;
 
     @media (max-width: 600px) {
         width: 100%;
@@ -139,7 +141,6 @@ main {
             }
         }
     }
-    width: $body-width;
 
     p {
         text-indent: 20px;
@@ -396,12 +397,12 @@ svg {
 }
 
 .socialLink {
+    margin-top: 10px;
+
     @media (min-width: $min-screen-width) {
         margin-left: 50px;
     }
     
-    margin-top: 10px;
-
     a {
         display: flex;
         align-items: center;
