@@ -44,6 +44,7 @@ class MobileNavToggle {
     }
 
     toggleNav() {
+        this.toggleButton.toggleClass('open');
         if (this.navMenu.hasClass('open')) {
             this.close();
         }
