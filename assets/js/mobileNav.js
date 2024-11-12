@@ -25,6 +25,7 @@ class MobileNavToggle {
     }
 
     close() {
+        this.toggleButton.removeClass('open');
         $('body').removeClass('overflow-hidden');
 
         this.navMenu.addClass('animateOut')
@@ -35,6 +36,7 @@ class MobileNavToggle {
     }
 
     open() {
+        this.toggleButton.addClass('open');
         $('body').addClass('overflow-hidden');
 
         this.navMenu.addClass('animateIn open');
@@ -44,7 +46,6 @@ class MobileNavToggle {
     }
 
     toggleNav() {
-        this.toggleButton.toggleClass('open');
         if (this.navMenu.hasClass('open')) {
             this.close();
         }
