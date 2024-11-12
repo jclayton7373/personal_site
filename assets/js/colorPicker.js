@@ -84,13 +84,18 @@ export default class colorPicker {
             $("#colorPickerBackground").addClass("active");
             $("body").addClass("overflow-hidden");
         });
+        $("#colorBlockContainerMobile").on("click", function () {
+            $("#colorPicker").addClass("active");
+            $("#colorPickerBackground").addClass("active");
+            $("body").addClass("overflow-hidden");
+        });
 
         $("#colorPickerBackground").on("click", function () {
             $("#colorPicker").removeClass("active");
             $("#colorPickerBackground").removeClass("active");
             $("body").removeClass("overflow-hidden");
         });
-
+        
         this.addEventListenerToColorInput("#color-input-1", "--main-color");
         this.addEventListenerToColorInput("#color-input-2", "--text-color");
         this.addEventListenerToColorInput("#color-input-3", "--accent-color-1");
