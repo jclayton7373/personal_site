@@ -9,7 +9,19 @@ class MobileNavToggle {
         if (this.toggleButton && this.navMenu) {
             this.toggleButton.on('click', () => this.toggleNav());
         }
-        $("#mobileNav a").on('click', () => this.close());
+        $("#mobileNav a").on('click', (e) => this.click(e));
+    }
+
+    click(e) {
+        this.close();
+        e.preventDefault();
+        setTimeout(() => {
+            const linkTo = e.currentTarget.getAttribute('href');
+            const top = linkTo === "#" ? 0 : $(linkTo).offset().top - 50;
+            $('html,body').animate({
+                scrollTop: top},
+                300);
+            }, 200);
     }
 
     close() {
