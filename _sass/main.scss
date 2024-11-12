@@ -85,10 +85,7 @@ header h1 {
 /* Main content styles */
 #mainWrapper {
     justify-content: center;
-
-    @media (min-width: $min-screen-width) {
-        display: flex;
-    }
+    display: flex;
     
 }
 
@@ -493,6 +490,7 @@ svg {
     width: 40px;
     height: 40px;
     border-radius: 3px;
+    display: none;
 
     span {
         display: block;
@@ -517,6 +515,10 @@ svg {
         span:nth-child(3) {
             transform: translateY(-10px) rotate(-45deg);
         }
+    }
+
+    @media (max-width: $min-screen-width) {
+        display: block;
     }
 
 
