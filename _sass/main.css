@@ -335,14 +335,14 @@ svg {
   stroke-miterlimit: 10;
   stroke-width: 22;
 }
-svg#nameVector {
+svg.nameVector {
   width: 300px;
   height: 200px;
   fill: var(--accent-color-1);
   stroke: var(--accent-color-3);
   stroke-width: 90;
 }
-svg#nameVector.animated {
+svg.nameVector.animated {
   animation: color-scroll 1s infinite linear;
 }
 svg#heartVector {

@@ -9,12 +9,12 @@ $(document).ready(function () {
     new StickerClick('/assets/images/heart.svg');
     new MobileNavToggle();
 
-    $("svg#nameVector").hover(function(){
+    $("svg.nameVector").hover(function(){
         $(this).addClass("animated");    
     }, function() {
-        $("svg#nameVector").bind("animationiteration", function(){
+        $("svg.nameVector").bind("animationiteration", function(){
             $(this).removeClass("animated");
-            $("svg#nameVector").unbind("animationiteration");
+            $("svg.nameVector").unbind("animationiteration");
         });
     });
 
