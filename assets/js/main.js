@@ -17,4 +17,13 @@ $(document).ready(function () {
             $("svg#nameVector").unbind("animationiteration");
         });
     });
+
+    $(".desktopNav a").on("click", function(e){
+        e.preventDefault();
+        const linkTo = e.currentTarget.getAttribute('href');
+        const top = linkTo === "#" ? 0 : $(linkTo).offset().top;
+        $('html,body').animate({
+            scrollTop: top},
+            300);
+        });
 });

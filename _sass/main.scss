@@ -311,6 +311,11 @@ svg {
         &.animated {
             animation: color-scroll 1s infinite linear;
         }
+
+        &:hover {
+            transform: scale(1.02);
+            transition: transform .2s ease;
+        }
     }
 
     &#heartVector {
@@ -428,6 +433,15 @@ svg {
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #mobileNav {
     display: none;
     position: fixed;
@@ -447,12 +461,20 @@ svg {
     }
     
     &.animateIn {
-        animation: fadeInUp 0.3s ease;
+        animation: fadeIn 0.3s ease;
+
+        & > *{
+            animation: fadeInUp 0.3s ease;
+        }
     }
 
     &.animateOut {
-        opacity: 0;
-        animation: fadeInUp 0.3s ease reverse;
+        animation: fadeIn 0.3s ease reverse;
+
+        & > * {
+            opacity: 0;
+            animation: fadeInUp 0.3s ease reverse;
+        }
     }
 
     a {
@@ -491,6 +513,7 @@ svg {
     height: 40px;
     border-radius: 3px;
     display: none;
+    cursor: pointer;
 
     span {
         display: block;
@@ -520,6 +543,4 @@ svg {
     @media (max-width: $min-screen-width) {
         display: block;
     }
-
-
 }

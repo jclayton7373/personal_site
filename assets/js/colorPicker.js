@@ -95,7 +95,13 @@ export default class colorPicker {
             $("#colorPickerBackground").removeClass("active");
             $("body").removeClass("overflow-hidden");
         });
-        
+
+        $("#colorPickerCloseButton").on("click", function () {
+            $("#colorPicker").removeClass("active");
+            $("#colorPickerBackground").removeClass("active");
+            $("body").removeClass("overflow-hidden");
+        });
+
         this.addEventListenerToColorInput("#color-input-1", "--main-color");
         this.addEventListenerToColorInput("#color-input-2", "--text-color");
         this.addEventListenerToColorInput("#color-input-3", "--accent-color-1");
