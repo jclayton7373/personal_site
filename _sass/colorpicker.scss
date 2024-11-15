@@ -28,7 +28,7 @@
     cursor: pointer;
     z-index: $z-index-color-picker-trigger;
 
-    #colorBlockContainer {
+    #colorBlockContainer, #colorBlockContainerMobile {
         padding: 10px;
         background-color: rgba(20, 20, 20, 0.1);
         border-radius: 4px;
@@ -213,6 +213,11 @@
     
         span:nth-child(2) {
             transform: rotate(45deg) translate(-4px, -4px);
+        }
+
+        @media (max-width: 600px) {
+            top: -40px;
+            right: 0px;
         }
     }
 }

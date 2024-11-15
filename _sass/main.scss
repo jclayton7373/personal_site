@@ -364,6 +364,14 @@ svg {
         fill: var(--accent-color-1);
         stroke: var(--accent-color-3);
     }
+
+    &.initials {
+        width: 200px;
+        height: 200px;
+        stroke-width: 80;
+        fill: var(--accent-color-1);
+        stroke: var(--accent-color-3);
+    }
 }
 
 #experience {
