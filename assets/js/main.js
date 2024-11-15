@@ -21,6 +21,7 @@ $(document).ready(function () {
     $(".desktopNav a").on("click", function(e){
         e.preventDefault();
         const linkTo = e.currentTarget.getAttribute('href');
+        history.pushState(null, null, linkTo);
         const top = linkTo === "#" ? 0 : $(linkTo).offset().top;
         $('html,body').animate({
             scrollTop: top},

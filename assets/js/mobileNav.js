@@ -17,6 +17,7 @@ class MobileNavToggle {
         e.preventDefault();
         setTimeout(() => {
             const linkTo = e.currentTarget.getAttribute('href');
+            history.pushState(null, null, linkTo);
             const top = linkTo === "#" ? 0 : $(linkTo).offset().top - 50;
             $('html,body').animate({
                 scrollTop: top},
