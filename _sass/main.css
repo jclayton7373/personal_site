@@ -1,33 +1,5 @@
 /* styles.css */
 /* variables */
-/** fonts */
-.rowdies-light {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.rowdies-regular {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.rowdies-bold {
-  font-family: "Rowdies", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-/** css variables */
-:root {
-  --main-color: #c1c1c1;
-  --accent-color-1: #c1c1c1;
-  --text-color: #c1c1c1;
-  --accent-color-2: #c1c1c1;
-  --accent-color-3: #c1c1c1;
-}
-
 /* General styles */
 body {
   font-family: Arial, sans-serif;
@@ -35,6 +7,7 @@ body {
   padding: 0;
   background-color: var(--main-color);
   color: var(--text-color);
+  transition: color 0.3s, background-color 0.3s;
 }
 body.overflow-hidden {
   overflow: hidden;
@@ -45,237 +18,151 @@ header h1 {
 }
 
 /* Navigation styles */
-nav {
-  z-index: 1000;
-  background-color: var(--main-color);
-  color: var(--accent-color-2);
-  padding: 40px 50px 0 50px;
-  text-align: center;
-  width: 300px;
-  position: fixed;
+@media (min-width: 1000px) {
+  nav {
+    z-index: 1000;
+    background-color: var(--main-color);
+    color: var(--accent-color-2);
+    transition: color 0.3s, background-color 0.3s;
+    padding: 40px 50px 0 50px;
+    text-align: center;
+    width: 300px;
+    position: fixed;
+  }
+  nav a {
+    color: var(--accent-color-2);
+    transition: color 0.3s, background-color 0.3s;
+    display: block;
+    margin: 20px 0;
+    text-decoration: none;
+    font-size: 1.875rem;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    transition: font-weight 0.3s;
+  }
+  nav a:hover {
+    color: var(--accent-color-3);
+    font-weight: 900;
+  }
+  #mainWrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 400px;
+    min-width: 600px;
+  }
 }
-nav a {
-  color: var(--accent-color-2);
-  display: block;
-  margin: 20px 0;
-  text-decoration: none;
-  font-size: 30px;
-  font-family: "Arimo", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+@media (max-width: 1000px) {
+  nav.desktopNav {
+    display: none;
+  }
 }
-nav a:hover {
-  color: var(--accent-color-3);
-  font-weight: 700;
+/* Main content styles */
+#mainWrapper {
+  justify-content: center;
+  display: flex;
 }
 
-/* Main content styles */
 main {
   z-index: 1000;
   padding: 20px;
-  margin-left: 400px;
   font-family: "Arimo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  max-width: 600px;
+  width: 600px;
+}
+@media (max-width: 600px) {
+  main {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  main p {
+    font-size: 1rem;
+    padding-left: 10px;
+  }
+  main p#hello {
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  main p#helloPara {
+    font-size: 1.25rem;
+  }
+  main .sectionHeader h2 {
+    font-size: 2rem;
+  }
+  main .sectionHeader svg {
+    height: 35px;
+    width: 35px;
+  }
+  main form #name, main form #email, main form #message, main form #submit {
+    width: calc(100% - 10px);
+  }
+  main form #submit {
+    width: 100%;
+  }
 }
 main p {
   text-indent: 20px;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.5;
   padding-left: 20px;
 }
-main h2 {
-  color: var(--accent-color-1);
-  font-size: 30px;
-  font-weight: 700;
+main p#hello {
+  font-size: 5rem;
+  margin-bottom: 0;
+}
+main p#helloPara {
+  font-size: 1.5rem;
+}
+main .sectionHeader {
   margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .sectionHeader h2 {
+  color: var(--accent-color-1);
+  transition: color 0.3s;
+  font-size: 2.5rem;
+  font-family: "Inter";
+  font-weight: 900;
+  display: inline-block;
+  margin: 0;
+}
+main .sectionHeader svg {
+  display: inline-block;
+  fill: var(--accent-color-1);
+  stroke: var(--accent-color-3);
+  stroke-width: 50;
+  transition: stroke 0.3s, fill 0.3s;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  margin: 10px;
+}
+main .sectionHeader svg.leftIcon {
+  margin-left: 0;
+}
+main .sectionHeader svg.rightIcon {
+  margin-right: 0;
+}
+@media (max-width: 600px) {
+  main .sectionHeader {
+    margin-top: 50px;
+  }
 }
 main a {
   color: var(--accent-color-2);
+  transition: color 0.3s;
   text-decoration: none;
 }
 main a:hover {
   color: var(--accent-color-3);
-}
-
-/* Footer styles */
-footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 10px;
-  cursor: pointer;
-}
-footer #colorBlockContainer {
-  padding: 10px;
-  background-color: rgba(20, 20, 20, 0.1);
-  border-radius: 4px;
-}
-footer:hover {
-  background-color: rgba(20, 20, 20, 0.3);
-}
-footer span {
-  height: 25px;
-  width: 25px;
-  background-color: var(--accent-color-1);
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: inset 0px 0px 0px 3px rgba(218, 218, 218, 0.48);
-}
-footer span#color-block-1 {
-  background-color: var(--main-color);
-}
-footer span#color-block-2 {
-  background-color: var(--text-color);
-}
-footer span#color-block-3 {
-  background-color: var(--accent-color-1);
-}
-footer span#color-block-4 {
-  background-color: var(--accent-color-2);
-}
-footer span#color-block-5 {
-  background-color: var(--accent-color-3);
-}
-
-/* Color Picker */
-#colorPicker {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  margin: 10px;
-  background-color: rgba(255, 255, 255, 0.4);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  border-radius: 8px;
-  z-index: 1040;
-  justify-content: space-between;
-  display: none;
-}
-#colorPicker.active {
-  display: flex;
-}
-#colorPicker .colorPickerRow {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-#colorPicker span {
-  height: 30px;
-  width: 30px;
-  background-color: var(--accent-color-1);
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: inset 0px 0px 0px 3px rgba(218, 218, 218, 0.6);
-}
-#colorPicker span#color-block-1 {
-  background-color: var(--main-color);
-}
-#colorPicker span#color-block-2 {
-  background-color: var(--text-color);
-}
-#colorPicker span#color-block-3 {
-  background-color: var(--accent-color-1);
-}
-#colorPicker span#color-block-4 {
-  background-color: var(--accent-color-2);
-}
-#colorPicker span#color-block-5 {
-  background-color: var(--accent-color-3);
-}
-#colorPicker input.textInput {
-  width: 70px;
-  text-align: center;
-  padding: 1px;
-  margin-left: 10px;
-  font-family: "Courier New", Courier, monospace;
-}
-#colorPicker input.colorPickerInput {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-#colorPicker input.is-invalid {
-  outline-color: #bf2828 !important;
-}
-#colorPicker input#color-input-1 {
-  outline-color: var(--main-color);
-}
-#colorPicker input#color-input-2 {
-  outline-color: var(--text-color);
-}
-#colorPicker input#color-input-3 {
-  outline-color: var(--accent-color-1);
-}
-#colorPicker input#color-input-4 {
-  outline-color: var(--accent-color-2);
-}
-#colorPicker input#color-input-5 {
-  outline-color: var(--accent-color-3);
-}
-#colorPicker li {
-  margin: 10px;
-  padding: 5px;
-  background-color: var(--main-color);
-  border-radius: 4px;
-}
-#colorPicker .colorPreset {
-  display: block;
-  cursor: pointer;
-  text-align: center;
-}
-#colorPicker .colorPreset:hover {
-  color: var(--accent-color-3);
-}
-#colorPicker .colorPreset#randomColor {
-  margin-top: 20px;
-  border: 2px solid var(--accent-color-1);
-}
-
-#colorPickerPresets {
-  margin-right: 20px;
-}
-
-#presetsLabel, #customLabel {
-  font-size: 24px;
-  color: var(--text-color);
-  font-weight: 700;
-}
-
-#themeButtons {
-  font-size: 18px;
-  margin: 0;
-  margin-right: 10px;
-  padding: 0px;
-}
-#themeButtons .presets {
-  height: 150px;
-  overflow: scroll;
-  -webkit-mask-image: linear-gradient(black 90%, transparent 100%);
-  mask-image: linear-gradient(black 90%, transparent 100%);
-}
-
-#colorPickerBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1020;
-  display: none;
-}
-#colorPickerBackground.active {
-  display: block;
+  transition: none;
 }
 
 form input, form textarea {
@@ -284,7 +171,7 @@ form input, form textarea {
   color: var(--accent-color-1);
 }
 form #name, form #email, form #message, form #submit {
-  font-size: 16px;
+  font-size: 1rem;
   margin: 10px 0;
   border-radius: 4px;
   outline-color: var(--accent-color-3);
@@ -293,14 +180,20 @@ form #name, form #email, form #message, form #submit {
   height: 40px;
 }
 form #name:focus, form #email:focus, form #message:focus {
-  background-color: rgba(255, 255, 255, 0.3098039216);
+  box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.1882352941);
 }
 form #submit {
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
   width: 608px;
 }
-form #submit:hover, form #submit.clicked, form #submit:focus {
+form #submit:hover, form #submit.clicked, form #submit:focus, form #submit.submitable:hover {
   background-color: var(--accent-color-1);
+  color: var(--accent-color-3);
+  box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.1882352941);
+}
+form #submit.submitable {
+  background-color: color-mix(in srgb, var(--accent-color-1), rgb(255, 255, 255) 15%);
   color: var(--accent-color-3);
 }
 form #message {
@@ -334,6 +227,28 @@ svg {
   stroke-linejoin: round;
   stroke-miterlimit: 10;
   stroke-width: 22;
+  transition: stroke 0.3s, fill 0.3s;
+}
+svg#headerDrawing {
+  stroke-width: 7;
+}
+svg#headerDrawing .catFace {
+  fill: var(--accent-color-1);
+}
+svg#headerDrawing .catEye, svg#headerDrawing .catMouth {
+  fill: transparent;
+}
+svg#headerDrawing .catNose, svg#headerDrawing .catEar {
+  fill: var(--accent-color-3);
+}
+svg#headerDrawing .leftFlower, svg#headerDrawing .rightFlower {
+  fill: var(--accent-color-2);
+}
+svg#headerDrawing .leftFlowerMiddle, svg#headerDrawing .rightFlowerMiddle {
+  fill: var(--accent-color-3);
+}
+svg#headerDrawing .leftHeart, svg#headerDrawing .rightHeart {
+  fill: var(--accent-color-3);
 }
 svg.nameVector {
   width: 300px;
@@ -345,37 +260,236 @@ svg.nameVector {
 svg.nameVector.animated {
   animation: color-scroll 1s infinite linear;
 }
+svg.nameVector:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+svg.nameVector.mobile {
+  display: block;
+  margin: 50px auto;
+  width: 90vw;
+  max-width: 600px;
+  height: 30vw;
+  min-height: 200px;
+}
+@media (min-width: 1000px) {
+  svg.nameVector.mobile {
+    display: none;
+  }
+}
 svg#heartVector {
-  width: 23px;
-  height: 23px;
+  width: 60px;
+  height: 60px;
+  stroke-width: 25;
   cursor: default;
 }
 svg#heartVector:hover {
   fill: var(--accent-color-2);
   stroke: var(--accent-color-1);
+  transition: stroke 0.2s, fill 0.2s;
+}
+svg#emailicon {
+  width: 50px;
+  height: 50px;
+  stroke-width: 80;
+  fill: var(--accent-color-1);
+  stroke: var(--accent-color-3);
+}
+svg#linkedin {
+  width: 45px;
+  height: 45px;
+  stroke-width: 80;
+  fill: var(--accent-color-1);
+  stroke: var(--accent-color-3);
+}
+svg#ig {
+  width: 40px;
+  height: 40px;
+  stroke-width: 80;
+  fill: var(--accent-color-1);
+  stroke: var(--accent-color-3);
+}
+svg.initials {
+  width: 200px;
+  height: 200px;
+  stroke-width: 80;
+  fill: var(--accent-color-1);
+  stroke: var(--accent-color-3);
 }
 
-#resume h3 {
+#experience h3 {
   color: var(--text-color);
-  font-size: 20px;
+  transition: color 0.3s;
+  font-size: 1.25rem;
   font-weight: 700;
 }
-#resume h4 {
+#experience h4 {
   color: var(--text-color);
-  font-size: 18px;
+  transition: color 0.3s;
+  font-size: 1.125rem;
   font-weight: 500;
 }
-#resume h4 span {
+#experience h4 span {
   color: var(--accent-color-3);
-  font-size: 14px;
+  transition: color 0.3s;
+  font-size: 0.875rem;
   font-weight: 300;
   margin-left: 10px;
 }
-#resume p {
+#experience p {
   color: var(--text-color);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
   padding-left: 20px;
   padding-bottom: 20px;
   border-bottom: 0.5px solid var(--accent-color-3);
+}
+
+.stickerClick {
+  position: absolute;
+}
+.stickerClick svg {
+  transform: translate(-50%, -50%);
+  fill: var(--accent-color-3);
+  stroke: var(--accent-color-1);
+}
+
+.socialLink {
+  margin-top: 10px;
+}
+@media (min-width: 1000px) {
+  .socialLink {
+    margin-left: 50px;
+  }
+}
+.socialLink a {
+  display: flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 1.25rem;
+}
+.socialLink a svg {
+  padding-right: 15px;
+}
+.socialLink a:hover svg {
+  fill: var(--accent-color-3) !important;
+  stroke: var(--accent-color-1) !important;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#mobileNav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  color: var(--accent-color-2);
+  transition: color 0.3s, background-color 0.3s;
+  z-index: 1001;
+  flex-direction: column;
+  align-items: center;
+}
+#mobileNav.open {
+  display: flex;
+}
+#mobileNav.animateIn {
+  animation: fadeIn 0.3s ease;
+}
+#mobileNav.animateIn > * {
+  animation: fadeInUp 0.3s ease;
+}
+#mobileNav.animateOut {
+  animation: fadeIn 0.3s ease reverse;
+}
+#mobileNav.animateOut > * {
+  opacity: 0;
+  animation: fadeInUp 0.3s ease reverse;
+}
+#mobileNav a {
+  color: var(--accent-color-2);
+  transition: color 0.3s, background-color 0.3s;
+  display: block;
+  margin: 20px 0;
+  text-decoration: none;
+  font-size: 1.875rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  transition: font-weight 0.3s;
+}
+#mobileNav a:hover {
+  color: var(--accent-color-3);
+  font-weight: 900;
+}
+#mobileNav #name {
+  margin: 50px 0;
+}
+
+#mobileNavToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+  color: var(--accent-color-3);
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  display: none;
+  cursor: pointer;
+}
+#mobileNavToggle span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: var(--accent-color-2);
+  margin: 6px auto;
+  transition: background-color 0.3s;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+#mobileNavToggle.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+#mobileNavToggle.open span:nth-child(2) {
+  opacity: 0;
+}
+#mobileNavToggle.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+@media (max-width: 1000px) {
+  #mobileNavToggle {
+    display: block;
+  }
+}
+
+.fadeIntoView {
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(20px);
+}
+.fadeIntoView.visible {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=main.css.map */

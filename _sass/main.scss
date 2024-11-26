@@ -110,6 +110,7 @@ main {
 
             &#hello {
                 font-size: 1.5rem;
+                margin-top: 0;
             }
 
             &#helloPara {
@@ -146,7 +147,8 @@ main {
         padding-left: 20px;
 
         &#hello {
-            font-size: 1.875rem;
+            font-size: 5rem;
+            margin-bottom: 0;
         }
 
         &#helloPara {
@@ -167,6 +169,7 @@ main {
             font-family: "Inter";
             font-weight: 900;
             display: inline-block;
+            margin: 0;
         }
 
         svg {
@@ -179,6 +182,18 @@ main {
             height: 45px; 
             width: 45px;
             margin: 10px;
+
+            &.leftIcon {
+                margin-left: 0;
+            }
+
+            &.rightIcon {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            margin-top: 50px;
         }
     }
 
@@ -322,6 +337,8 @@ svg {
             margin: 50px auto;
             width: 90vw;
             max-width: 600px;
+            height: 30vw;
+            min-height: 200px;
 
             @media (min-width: $min-screen-width) {
                 display: none;
@@ -335,8 +352,8 @@ svg {
             stroke: var(--accent-color-1);
             transition: stroke 0.2s, fill 0.2s;
         }
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
         stroke-width: 25;
         cursor: default;
     }
@@ -561,5 +578,16 @@ svg {
 
     @media (max-width: $min-screen-width) {
         display: block;
+    }
+}
+
+.fadeIntoView {
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(20px);
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

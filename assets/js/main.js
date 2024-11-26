@@ -22,9 +22,29 @@ $(document).ready(function () {
         e.preventDefault();
         const linkTo = e.currentTarget.getAttribute('href');
         history.pushState(null, null, linkTo);
-        const top = linkTo === "#" ? 0 : $(linkTo).offset().top;
+        const top = linkTo === "#" ? 0 : $(linkTo).offset().top - 50;
         $('html,body').animate({
             scrollTop: top},
             300);
+        });
+
+        const fadeInElements = document.querySelectorAll('.fadeIntoView');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeInElements.forEach(element => {
+            observer.observe(element);
         });
 });
