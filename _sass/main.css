@@ -317,26 +317,26 @@ svg.initials {
   stroke: var(--accent-color-3);
 }
 
-#experience h3 {
+#resumeContainer h3 {
   color: var(--text-color);
   transition: color 0.3s;
   font-size: 1.25rem;
   font-weight: 700;
 }
-#experience h4 {
+#resumeContainer h4 {
   color: var(--text-color);
   transition: color 0.3s;
   font-size: 1.125rem;
   font-weight: 500;
 }
-#experience h4 span {
+#resumeContainer h4 span {
   color: var(--accent-color-3);
   transition: color 0.3s;
   font-size: 0.875rem;
   font-weight: 300;
   margin-left: 10px;
 }
-#experience p {
+#resumeContainer p {
   color: var(--text-color);
   font-size: 1rem;
   line-height: 1.5;

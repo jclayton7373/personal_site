@@ -30,11 +30,6 @@
         </header>
         <div id="mainWrapper" >
         <main>
-            <div class="fadeIntoView">
-                <p id="hello">hello!
-                    {% include heart.svg %}
-                </p>
-            </div>
             <svg version="1.1" class="nameVector mobile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="8160px" height="4700px" viewBox="0 0 8160 4700" style="enable-background:new 0 0 8160 4700;" xml:space="preserve">
                 <g>
@@ -142,89 +137,103 @@
                     c48.09-23.74,80.03-84.57,94.94-144.88c48.85-197.63-62.86-402.8-219.52-446.02c-156.66-43.22-336.22,55.3-450.05,214.3
                     c-52.17-9.67-34.85-106.98-51.88-167.06c-14.2-50.1-63.68-77.33-107.26-59.03C6904.07,3119.24,6872.81,3180.38,6919.2,3165.78z"/>
             </svg>
-
-            <p id="helloPara">
-                welcome to my personal website, thank you for visiting!look around to learn more about me, my work, and how to get in touch.
-            </p>
-
-            {% include header_drawing.svg %}
-
-            {% include section_header.html section_link="about" section_title="ABOUT" %}
-
-            <p>
-                i am a software engineer currently employed at etsy. i graduated from
-                tufts university in 2023 with a degree in computer science.
-            </p>
-
-            <p>
-                for more detailed information about my skills and experience, check out
-                my <a href="#resume"> resume </a> below.
-            </p>
-
-            <p>
-                when i am not at my computer - i am also a tap dancer in the
-                boston-based tap company,
-                <a href="https://subjectmattertap.com"> subject:matter. </a>
-            </p>
-
-            {% include section_header.html section_link="experience" section_title="EXPERIENCE" %}
-            
-            <div id="experience">
-                <h4> Etsy <span class="timeInRole"> August 2023 - Present </span></h4>
-                <p> i am part of then search experience team. our job is to build and maintain etsy's search page.
-                    as part of this team i have built and run a number of succesful experiments. one notable one includes
-                    being a main contributor to a large project to update all of the search page's filters from an html and
-                    javascript architecture to React! this was a large project that taught me a lot. </p>
-
-                <h4> Subject:Matter Tap <span class="timeInRole"> 2018 - Present </span></h4>
-                <p> as a member of subject matter i have taught and performed across the US and Canada. 
-                    additionally, as the technical coordinator for the company, i have worked with venue staff
-                    to design lighting and refine sound for dancers and band.
+            <div class="fadeIntoView">
+                <p id="hello">hello!
+                    {% include heart.svg %}
                 </p>
 
-                <h4> Teaching Assistant <span class="timeInRole" > June 2018 - August 2022</span></h4>
+                <p id="helloPara">
+                    welcome to my personal website, thank you for visiting!look around to learn more about me, my work, and how to get in touch.
+                </p>
+            </div>
+
+            <div class="fadeIntoView">
+                {% include header_drawing.svg %}
+            </div>
+
+            <div class="fadeIntoView">
+                {% include section_header.html section_link="about" section_title="ABOUT" %}
+
                 <p>
-                    worked for 6 semesters as a teaching assistant for the computer science department at tufts university.
-                    as a teaching assistant i instructed and guided students in office hours, and lead labs of students to facilitate hands-on lessons. 
-                    i learned to reason quickly about student’s code to debug complex algorithms, and developed an opinionated sense
-                    of style and clarity in code. for three semesters i was the TA for the data structures course, and then for three semesters
-                    i was the TA for the machine structure and assembly language programming, taught entirely in C. 
+                    i am a software engineer currently employed at etsy. i graduated from
+                    tufts university in 2023 with a degree in computer science.
+                </p>
+
+                <p>
+                    for more detailed information about my skills and experience, check out
+                    my <a href="#resume"> resume </a> below.
+                </p>
+
+                <p>
+                    when i am not at my computer - i am also a tap dancer in the
+                    boston-based tap company,
+                    <a href="https://subjectmattertap.com"> subject:matter. </a>
                 </p>
             </div>
 
-            {% include section_header.html section_link="projects" section_title="PROJECTS" %}
+            <div class="fadeIntoView">
+                {% include section_header.html section_link="experience" section_title="EXPERIENCE" %}
+                <div id="resumeContainer">
+                    <h4> Etsy <span class="timeInRole"> August 2023 - Present </span></h4>
+                    <p> i am part of then search experience team. our job is to build and maintain etsy's search page.
+                        as part of this team i have built and run a number of succesful experiments. one notable one includes
+                        being a main contributor to a large project to update all of the search page's filters from an html and
+                        javascript architecture to React! this was a large project that taught me a lot. </p>
 
-            <p>more info coming here soon...</p>
+                    <h4> Subject:Matter Tap <span class="timeInRole"> 2018 - Present </span></h4>
+                    <p> as a member of subject matter i have taught and performed across the US and Canada. 
+                        additionally, as the technical coordinator for the company, i have worked with venue staff
+                        to design lighting and refine sound for dancers and band.
+                    </p>
 
-            {% include section_header.html section_link="contact" section_title="CONTACT" %}
-
-            <p> i would love to hear from you! if you'd like, please fill out this form to get in touch and i will get back to you soon!</p>
-            <form id="contactForm">
-                    <input type="text" name="name" id="name" placeholder="name" rules="required|max:255"/>
-                    <input type="email" name="email" id="email" placeholder="email" rules="required|max:255"/>
-                    <textarea
-                        name="message"
-                        id="message"
-                        placeholder="message"
-                    ></textarea>
-                    <input type="submit" id="submit" value="submit!"/> 
-
-            </form>
-            <p>or, if you prefer, you can reach me at:</p>
-            <div class="socialLink">
-                <a href="mailto:jacksonclayton00@gmail.com">{% include socials/email.svg %} jacksonclayton00@gmail.com</a>
+                    <h4> Teaching Assistant <span class="timeInRole" > June 2018 - August 2022</span></h4>
+                    <p>
+                        worked for 6 semesters as a teaching assistant for the computer science department at tufts university.
+                        as a teaching assistant i instructed and guided students in office hours, and lead labs of students to facilitate hands-on lessons. 
+                        i learned to reason quickly about student’s code to debug complex algorithms, and developed an opinionated sense
+                        of style and clarity in code. for three semesters i was the TA for the data structures course, and then for three semesters
+                        i was the TA for the machine structure and assembly language programming, taught entirely in C. 
+                    </p>
+                </div>
             </div>
-            <div class="socialLink">
-                <a href="https://linkedin.com/in/jacksonclayton">
-                    {% include socials/linkedin.svg %}
-                    linkedin.com/in/jacksonclayton
-                </a>
+
+            <div class="fadeIntoView">
+                {% include section_header.html section_link="projects" section_title="PROJECTS" %}
+                
+                <p>more info coming here soon...</p>
             </div>
-            <div class="socialLink">
-                <a href="https://instagram.com/in/jaxxonlayton">
-                    {% include socials/ig.svg %}
-                    instagram.com/jaxxonlayton
-                </a>
+
+            <div class="fadeIntoView">
+                {% include section_header.html section_link="contact" section_title="CONTACT" %}
+
+                <p> i would love to hear from you! if you'd like, please fill out this form to get in touch and i will get back to you soon!</p>
+                <form id="contactForm">
+                        <input type="text" name="name" id="name" placeholder="name" rules="required|max:255"/>
+                        <input type="email" name="email" id="email" placeholder="email" rules="required|max:255"/>
+                        <textarea
+                            name="message"
+                            id="message"
+                            placeholder="message"
+                        ></textarea>
+                        <input type="submit" id="submit" value="submit!"/> 
+
+                </form>
+                <p>or, if you prefer, you can reach me at:</p>
+                <div class="socialLink">
+                    <a href="mailto:jacksonclayton00@gmail.com">{% include socials/email.svg %} jacksonclayton00@gmail.com</a>
+                </div>
+                <div class="socialLink">
+                    <a href="https://linkedin.com/in/jacksonclayton">
+                        {% include socials/linkedin.svg %}
+                        linkedin.com/in/jacksonclayton
+                    </a>
+                </div>
+                <div class="socialLink">
+                    <a href="https://instagram.com/in/jaxxonlayton">
+                        {% include socials/ig.svg %}
+                        instagram.com/jaxxonlayton
+                    </a>
+                </div>
             </div>
             
         </main>
