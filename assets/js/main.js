@@ -31,8 +31,8 @@ $(document).ready(function () {
         const fadeInElements = document.querySelectorAll('.fadeIntoView');
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.20,
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
