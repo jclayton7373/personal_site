@@ -37,7 +37,7 @@ header h1 {
     nav {
         z-index: $z-index;
 
-        background-color: var(--main-color);
+        background-color: transparent;
         color: var(--accent-color-2);
         transition: color 0.3s, background-color 0.3s;
         padding: 40px $nav-padding-right 0 $nav-padding-left;

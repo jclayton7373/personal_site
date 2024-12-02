@@ -30,7 +30,37 @@ class StickerClick {
     }
 
     init() {
-        //document.addEventListener('click', this.handleClick.bind(this));
+        // document.addEventListener('click', this.handleClick.bind(this));
+        // this.placeRandomStickers();
+    }
+
+    placeRandomStickers() {
+        for (let i = 0; i < 100; i++) {
+            const event = {
+                pageX: Math.random() * window.innerWidth,
+                pageY: Math.random() * window.innerHeight,
+                target: document.body
+            };
+            this.handleClick(event);
+        }
+    }
+
+    placeSticker(x, y) {
+        const img = document.createElement('div');
+        const randomIndex = Math.floor(Math.random() * this.stickerSources.length);
+        img.innerHTML = this.stickerSources[randomIndex];
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+        const randomSize = Math.floor(Math.random() * 20) + 20;
+        img.style.width = randomSize + 'px';
+        img.classList.add('stickerClick', 'stickerFadeIn');
+        const randomRotation = Math.floor(Math.random() * 30) - 15;
+        img.style.transform = `rotate(${randomRotation}deg)`;
+
+        // Append the image to the body
+        document.body.appendChild(img);
+
+
     }
 
     handleClick(event) {
@@ -43,7 +73,6 @@ class StickerClick {
         img.style.top = event.pageY + 'px';
         const randomSize = Math.floor(Math.random() * 20) + 20;
         img.style.width = randomSize + 'px';
-        img.style
         img.classList.add('stickerClick', 'stickerFadeIn');
         const randomRotation = Math.floor(Math.random() * 30) - 15;
         img.style.transform = `rotate(${randomRotation}deg)`;

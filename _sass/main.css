@@ -21,7 +21,7 @@ header h1 {
 @media (min-width: 1000px) {
   nav {
     z-index: 1000;
-    background-color: var(--main-color);
+    background-color: transparent;
     color: var(--accent-color-2);
     transition: color 0.3s, background-color 0.3s;
     padding: 40px 50px 0 50px;
