@@ -292,6 +292,7 @@ svg {
 }
 svg#headerDrawing {
   stroke-width: 7;
+  transition: filter ease 0.3s, transform ease 0.3s;
 }
 svg#headerDrawing .catFace {
   fill: var(--accent-color-1);
@@ -310,6 +311,10 @@ svg#headerDrawing .leftFlowerMiddle, svg#headerDrawing .rightFlowerMiddle {
 }
 svg#headerDrawing .leftHeart, svg#headerDrawing .rightHeart {
   fill: var(--accent-color-3);
+}
+svg#headerDrawing.animated {
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4392156863));
+  transform: scale(1.02);
 }
 svg#headerDrawing.animated g, svg#headerDrawing.animated path {
   transform-origin: center;
