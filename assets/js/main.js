@@ -2,12 +2,14 @@ import colorPicker from "./colorPicker.js";
 import initializeForm from "./initializeForm.js";
 import StickerClick from "./stickerClick.js";
 import MobileNavToggle from "./mobileNav.js";
+import AnimateHeaderDrawing from "./animateHeaderDrawing.js";
 
 $(document).ready(function () {
     new colorPicker();
     new initializeForm();
     new StickerClick('/assets/images/heart.svg');
     new MobileNavToggle();
+    new AnimateHeaderDrawing();
 
     $("svg.nameVector").hover(function(){
         $(this).addClass("animated");    

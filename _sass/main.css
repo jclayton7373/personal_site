@@ -220,6 +220,66 @@ form #message {
     stroke: var(--accent-color-3);
   }
 }
+@keyframes cat-nod {
+  0%, 50%, 100% {
+    transform: translate(0px, 0px);
+  }
+  12%, 37% {
+    transform: translate(-5px, -20px);
+  }
+  25% {
+    transform: translate(-10px, -10px);
+  }
+  62%, 87% {
+    transform: translate(5px, -20px);
+  }
+  75% {
+    transform: translate(10px, -10px);
+  }
+}
+@keyframes cat-tilt {
+  0%, 50%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-7deg);
+  }
+  75% {
+    transform: rotate(7deg);
+  }
+}
+@keyframes heart-beat-right {
+  0%, 30%, 100% {
+    transform: scale(1) translate(0px);
+  }
+  15%, 45% {
+    transform: scale(1.05) translate(-10px, 8px);
+  }
+}
+@keyframes heart-beat-left {
+  0%, 30%, 100% {
+    transform: scale(1) translate(0px);
+  }
+  15%, 45% {
+    transform: scale(1.05) translate(10px, 8px);
+  }
+}
+@keyframes flower-spin-right {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+@keyframes flower-spin-left {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
 svg {
   fill: var(--main-color);
   stroke: var(--text-color);
@@ -250,6 +310,27 @@ svg#headerDrawing .leftFlowerMiddle, svg#headerDrawing .rightFlowerMiddle {
 }
 svg#headerDrawing .leftHeart, svg#headerDrawing .rightHeart {
   fill: var(--accent-color-3);
+}
+svg#headerDrawing.animated g, svg#headerDrawing.animated path {
+  transform-origin: center;
+}
+svg#headerDrawing.animated .cat {
+  animation: cat-nod 2s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+svg#headerDrawing.animated .catWrapper {
+  animation: cat-tilt 2s infinite linear;
+}
+svg#headerDrawing.animated .rightHeart {
+  animation: heart-beat-right 2s infinite ease;
+}
+svg#headerDrawing.animated .leftHeart {
+  animation: heart-beat-left 2s infinite ease;
+}
+svg#headerDrawing.animated .leftFlowerGroup {
+  animation: flower-spin-left 2s infinite cubic-bezier(0.44, 0.03, 0.12, 1);
+}
+svg#headerDrawing.animated .rightFlowerGroup {
+  animation: flower-spin-right 2s infinite cubic-bezier(0.7, 0.19, 0.38, 0.92);
 }
 svg.nameVector {
   width: 300px;

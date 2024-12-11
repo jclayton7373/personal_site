@@ -1,0 +1,5 @@
+{% for star in site.data.stars %}
+    <div class="star" style="top: {{ star.top }}; left: {{ star.left }};">
+        <img src="{{ star.image }}" alt="{{ star.alt }}" />
+    </div>
+{% endfor %}
