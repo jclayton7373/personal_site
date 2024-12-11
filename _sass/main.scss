@@ -357,7 +357,7 @@ svg {
 
     &#headerDrawing {
         stroke-width: 7;
-        transition: filter ease .3s, transform ease .3s;
+        transition: filter ease 1s, transform ease 1s;
 
         .catFace {
             fill: var(--accent-color-1);
@@ -386,6 +386,7 @@ svg {
         &.animated {
             filter: drop-shadow(0px 0px 10px #00000070);
             transform: scale(1.02);
+            transition: filter ease .3s, transform ease .3s;
 
             g, path {
                 transform-origin: center;
@@ -422,14 +423,12 @@ svg {
         fill: var(--accent-color-1);
         stroke: var(--accent-color-3);
         stroke-width: 90;
+        transition: transform .3s ease, filter .3s ease;
 
         &.animated {
             animation: color-scroll 1s infinite linear;
-        }
-
-        &:hover {
             transform: scale(1.02);
-            transition: transform .2s ease;
+            filter: drop-shadow(0px 0px 10px #00000070);
         }
 
         &.mobile {
@@ -526,6 +525,7 @@ svg {
 
 .stickerClick {
     position: absolute;
+    filter: opacity(0.3);
 
     svg {
         transform: translate(-50%, -50%);
