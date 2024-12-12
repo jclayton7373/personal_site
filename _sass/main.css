@@ -442,6 +442,10 @@ svg.initials {
   stroke: var(--accent-color-1);
 }
 
+#stickerContainer {
+  position: relative;
+}
+
 .socialLink {
   margin-top: 10px;
 }

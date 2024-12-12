@@ -32,33 +32,52 @@ class StickerClick {
     init() {
         // document.addEventListener('click', this.handleClick.bind(this));
         this.placeRandomStickers();
+        $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
         window.addEventListener('scroll', () => {
-            const stickers = document.querySelectorAll('.stickerClick');
-            stickers.forEach(sticker => {
-                var scrollHeight = window.scrollY;
-                var adjustment = scrollHeight / 3;
-                const currentY = parseFloat(sticker.dataset.top);
-                sticker.style.top = (currentY + adjustment) + 'px';
-            });
+            $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
         });
     }
 
+    getGutterWidths() {
+        if ($(document).width() > 1000) {
+            const leftGutterWidth = Math.max(400, ($(document).width() - 640) / 2);
+            const rightGutterWidth = Math.min(($(document).width() - 640) / 2, $(document).width() - 640 - 400);
+            return { leftGutterWidth, rightGutterWidth };
+        }
+        if ($(document).width() > 640) {
+            const leftGutterWidth = ($(document).width() - 640) / 2;
+            const rightGutterWidth = ($(document).width() - 640) / 2;
+            return { leftGutterWidth, rightGutterWidth };
+        }
+        return { leftGutterWidth: 50, rightGutterWidth: 50 };
+
+    }
+
     placeRandomStickers() {
+        const { leftGutterWidth, rightGutterWidth } = this.getGutterWidths();
+
+        const documentWidth = $(document).width();
+        const documentHeight = $(document).height();
+
+        const rightStars = Math.max(documentWidth * rightGutterWidth * 0.0001, 30);
+        const leftStars = Math.max(documentWidth * leftGutterWidth * 0.0001, 30)
+
         // right gutter 
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < rightStars; i++) {
             const event = {
-                pageX: (Math.random() * ($(document).width() - 600) / 2) + (600) + (($(document).width() - 600) / 2),
-                pageY: Math.random() * ($(document).height() * ( 2 / 3)),
+                pageX: documentWidth - (Math.random() * rightGutterWidth) - 20,
+                pageY: Math.random() * (documentHeight * ( 3 / 4)),
                 target: document.body
             };
             this.handleClick(event);
         }
 
+
         // left gutter
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < leftStars; i++) {
             const event = {
-                pageX: (Math.random() * ($(document).width() - 600) / 2),
-                pageY: Math.random() * ($(document).height() * ( 2 / 3)),
+                pageX: Math.random() * leftGutterWidth,
+                pageY: Math.random() * (documentHeight * ( 3 / 4)),
                 target: document.body
             };
             this.handleClick(event);
@@ -101,7 +120,7 @@ class StickerClick {
 
 
         // Append the image to the body
-        document.body.appendChild(img);
+        $("#stickerContainer").append(img);
 
         // Remove the image after 60 seconds
         setTimeout(() => {
