@@ -22,6 +22,7 @@ body {
     background-color: var(--main-color);
     color: var(--text-color);
     transition: color 0.3s, background-color 0.3s;
+    overflow-x: hidden;
 
     &.overflow-hidden {
         overflow: hidden;

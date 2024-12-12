@@ -32,6 +32,10 @@ class StickerClick {
     init() {
         // document.addEventListener('click', this.handleClick.bind(this));
         this.placeRandomStickers();
+        window.addEventListener('resize', () => {
+            $("#stickerContainer").empty();
+            this.placeRandomStickers();
+        });
         $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
         window.addEventListener('scroll', () => {
             $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
@@ -44,7 +48,7 @@ class StickerClick {
             const rightGutterWidth = Math.min(($(document).width() - 640) / 2, $(document).width() - 640 - 400);
             return { leftGutterWidth, rightGutterWidth };
         }
-        if ($(document).width() > 640) {
+        if ($(document).width() > 700) {
             const leftGutterWidth = ($(document).width() - 640) / 2;
             const rightGutterWidth = ($(document).width() - 640) / 2;
             return { leftGutterWidth, rightGutterWidth };
