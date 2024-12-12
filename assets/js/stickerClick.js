@@ -61,8 +61,8 @@ class StickerClick {
         const documentWidth = $(document).width();
         const documentHeight = $(document).height();
 
-        const rightStars = Math.max(documentWidth * rightGutterWidth * 0.0001, 30);
-        const leftStars = Math.max(documentWidth * leftGutterWidth * 0.0001, 30)
+        const rightStars = Math.max(documentWidth * rightGutterWidth * 0.00005, 30);
+        const leftStars = Math.max(documentWidth * leftGutterWidth * 0.00005, 30)
 
         const stickerLocationSet = new Set();
 
