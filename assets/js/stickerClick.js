@@ -66,11 +66,20 @@ class StickerClick {
         const rightStars = Math.max(documentWidth * rightGutterWidth * 0.0001, 30);
         const leftStars = Math.max(documentWidth * leftGutterWidth * 0.0001, 30)
 
+        const stickerLocationSet = new Set();
+
         // right gutter 
         for (let i = 0; i < rightStars; i++) {
+            let x;
+            let y;
+            do {
+                x = documentWidth - (Math.random() * rightGutterWidth) - 20;
+                y = Math.random() * (documentHeight * ( 3 / 4));
+            } while (stickerLocationSet.has(`${x / 40},${y / 40}`));
+            stickerLocationSet.add(`${x / 40 },${y / 40}`);
             const event = {
-                pageX: documentWidth - (Math.random() * rightGutterWidth) - 20,
-                pageY: Math.random() * (documentHeight * ( 3 / 4)),
+                pageX: x,
+                pageY: y,
                 target: document.body
             };
             this.handleClick(event);
