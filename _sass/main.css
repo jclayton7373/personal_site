@@ -443,8 +443,18 @@ svg.initials {
   stroke: var(--accent-color-1);
 }
 
-#stickerContainer {
+#stickerContainer1 {
   position: relative;
+}
+#stickerContainer1 .stickerClick {
+  filter: opacity(0.2);
+}
+
+#stickerContainer2 {
+  position: relative;
+}
+#stickerContainer2 .stickerClick {
+  filter: opacity(0.4);
 }
 
 .socialLink {

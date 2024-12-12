@@ -535,8 +535,20 @@ svg {
     }
 }
 
-#stickerContainer {
+#stickerContainer1 {
     position: relative;
+
+    .stickerClick {
+        filter: opacity(0.2);
+    }
+}
+
+#stickerContainer2 {
+    position: relative;
+
+    .stickerClick {
+        filter: opacity(0.4);
+    }
 }
 
 .socialLink {

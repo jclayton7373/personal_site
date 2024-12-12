@@ -32,13 +32,11 @@ class StickerClick {
     init() {
         // document.addEventListener('click', this.handleClick.bind(this));
         this.placeRandomStickers();
-        window.addEventListener('resize', () => {
-            $("#stickerContainer").empty();
-            this.placeRandomStickers();
-        });
-        $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
-        window.addEventListener('scroll', () => {
-            $("#stickerContainer").css("top", window.scrollY / 3 + 'px');
+        $("#stickerContainer1").css("top", window.scrollY / 3 + 'px');
+        $("#stickerContainer2").css("top", window.scrollY / 5 + 'px');
+    window.addEventListener('scroll', () => {
+            $("#stickerContainer1").css("top", window.scrollY / 3 + 'px');
+            $("#stickerContainer2").css("top", window.scrollY / 5 + 'px');
         });
     }
 
@@ -73,10 +71,10 @@ class StickerClick {
             let x;
             let y;
             do {
-                x = documentWidth - (Math.random() * rightGutterWidth) - 20;
-                y = Math.random() * (documentHeight * ( 3 / 4));
-            } while (stickerLocationSet.has(`${x / 40},${y / 40}`));
-            stickerLocationSet.add(`${x / 40 },${y / 40}`);
+                x = Math.floor(documentWidth - (Math.random() * rightGutterWidth) - 20);
+                y = Math.floor(Math.random() * (documentHeight * ( 3 / 4)));
+            } while (stickerLocationSet.has(`${Math.floor(x / 40)},${Math.floor(y / 40)}`));
+            stickerLocationSet.add(`${Math.floor(x / 40) },${Math.floor(y / 40)}`);
             const event = {
                 pageX: x,
                 pageY: y,
@@ -115,7 +113,9 @@ class StickerClick {
 
     }
 
-    handleClick(event) {
+    handleClick(event) {        
+        const background1 = Math.floor(Math.pow(Math.random(), 5) * 2) !== 0;
+
         console.log(event.target.nodeName);
         // Create a new image element
         const img = document.createElement('div');
@@ -123,7 +123,10 @@ class StickerClick {
         img.innerHTML = this.stickerSources[randomIndex];
         img.style.left = event.pageX + 'px';
         img.style.top = event.pageY + 'px';
-        const randomSize = Math.floor(Math.random() * 20) + 20;
+        let randomSize = Math.floor(Math.random() * 20) + 20;
+        if (background1) {
+            randomSize = Math.floor(randomSize * 2);
+        }
         img.style.width = randomSize + 'px';
         img.classList.add('stickerClick', 'stickerFadeIn');
         const randomRotation = Math.floor(Math.random() * 30) - 15;
@@ -133,7 +136,12 @@ class StickerClick {
 
 
         // Append the image to the body
-        $("#stickerContainer").append(img);
+        if(background1) {
+            $("#stickerContainer1").append(img);
+        }
+        else {
+            $("#stickerContainer2").append(img);
+        }
 
         // Remove the image after 60 seconds
         setTimeout(() => {
