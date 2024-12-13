@@ -443,6 +443,10 @@ svg.initials {
   stroke: var(--accent-color-1);
 }
 
+.stickerWrapper {
+  will-change: transform;
+}
+
 #stickerContainer1 {
   position: relative;
 }

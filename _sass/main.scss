@@ -536,6 +536,10 @@ svg {
     }
 }
 
+.stickerWrapper {
+    will-change: transform;
+}
+
 #stickerContainer1 {
     position: relative;
 

@@ -32,12 +32,13 @@ class StickerClick {
     init() {
         // document.addEventListener('click', this.handleClick.bind(this));
         this.placeRandomStickers();
-        $("#stickerContainer1").css("top", window.scrollY / 3 + 'px');
-        $("#stickerContainer2").css("top", window.scrollY / 5 + 'px');
-    window.addEventListener('scroll', () => {
-            $("#stickerContainer1").css("top", window.scrollY / 3 + 'px');
-            $("#stickerContainer2").css("top", window.scrollY / 5 + 'px');
-        });
+        this.repositionStickers();
+        window.addEventListener('scroll', this.repositionStickers);
+    }
+
+    repositionStickers() {
+        $("#stickerContainer1 .stickerWrapper").css("transform", `translate(0px,${window.scrollY / 3}px)`);
+        $("#stickerContainer2 .stickerWrapper").css("transform", `translate(0px,${window.scrollY / 5}px)`);
     }
 
     getGutterWidths() {
@@ -132,15 +133,18 @@ class StickerClick {
         const randomRotation = Math.floor(Math.random() * 30) - 15;
         img.style.transform = `rotate(${randomRotation}deg)`;
 
-        img.setAttribute("data-top", event.pageY.toString());
+        img.setAttribute("data-rotation", event.pageY.toString());
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('stickerWrapper');
+        wrapper.appendChild(img);
 
 
         // Append the image to the body
         if(background1) {
-            $("#stickerContainer1").append(img);
+            $("#stickerContainer1").append(wrapper);
         }
         else {
-            $("#stickerContainer2").append(img);
+            $("#stickerContainer2").append(wrapper);
         }
 
         // Remove the image after 60 seconds
