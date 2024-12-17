@@ -23,21 +23,19 @@ class StickerClick {
 
     ]
 
-    constructor(imagePath) {
-        this.imagePath = imagePath;
+    constructor() {
         this.init();
     }
 
     init() {
-        // document.addEventListener('click', this.handleClick.bind(this));
         this.placeRandomStickers();
         this.repositionStickers();
         window.addEventListener('scroll', this.repositionStickers);
     }
 
     repositionStickers() {
-        $("#stickerContainer1 .stickerWrapper").css("transform", `translate(0px,${window.scrollY / 3}px)`);
-        $("#stickerContainer2 .stickerWrapper").css("transform", `translate(0px,${window.scrollY / 5}px)`);
+        $("#stickerContainer1").css("transform", `translate(0px,${window.scrollY / 3}px)`);
+        $("#stickerContainer2").css("transform", `translate(0px,${window.scrollY / 5}px)`);
     }
 
     getGutterWidths() {
@@ -64,96 +62,65 @@ class StickerClick {
         const rightStars = Math.max(documentWidth * rightGutterWidth * 0.00005, 30);
         const leftStars = Math.max(documentWidth * leftGutterWidth * 0.00005, 30)
 
-        const stickerLocationSet = new Set();
-
         // right gutter 
         for (let i = 0; i < rightStars; i++) {
-            let x;
-            let y;
-            do {
-                x = Math.floor(documentWidth - (Math.random() * rightGutterWidth) - 20);
-                y = Math.floor(Math.random() * (documentHeight * ( 3 / 4)));
-            } while (stickerLocationSet.has(`${Math.floor(x / 40)},${Math.floor(y / 40)}`));
-            stickerLocationSet.add(`${Math.floor(x / 40) },${Math.floor(y / 40)}`);
-            const event = {
-                pageX: x,
-                pageY: y,
-                target: document.body
-            };
-            this.handleClick(event);
+            const x = Math.floor(documentWidth - (Math.random() * rightGutterWidth) - 20);
+            const y = Math.floor(Math.random() * (documentHeight * ( 3 / 4)));
+            const background1 = Math.floor(Math.pow(Math.random(), 5) * 2) !== 0;
+            
+            this.placeSticker(
+                x,
+                y,
+                this.getRandomRotation(),
+                this.getRandomSize(background1),
+                background1,
+                Math.floor(Math.random() * this.stickerSources.length)
+            );
         }
-
 
         // left gutter
         for (let i = 0; i < leftStars; i++) {
-            const event = {
-                pageX: Math.random() * leftGutterWidth,
-                pageY: Math.random() * (documentHeight * ( 3 / 4)),
-                target: document.body
-            };
-            this.handleClick(event);
+            const x = Math.random() * leftGutterWidth;
+            const y = Math.random() * (documentHeight * ( 3 / 4));
+            const background1 = Math.floor(Math.pow(Math.random(), 5) * 2) !== 0;
+
+            this.placeSticker(
+                x,
+                y,
+                this.getRandomRotation(),
+                this.getRandomSize(background1),
+                background1,
+                Math.floor(Math.random() * this.stickerSources.length)
+            );
         }
     }
 
-    placeSticker(x, y) {
+    placeSticker(x, y, rotation, size, background1, stickerIndex) {
         const img = document.createElement('div');
-        const randomIndex = Math.floor(Math.random() * this.stickerSources.length);
-        img.innerHTML = this.stickerSources[randomIndex];
+        img.innerHTML = this.stickerSources[stickerIndex];
         img.style.left = x + 'px';
         img.style.top = y + 'px';
-        const randomSize = Math.floor(Math.random() * 20) + 20;
-        img.style.width = randomSize + 'px';
+        img.style.width = size + 'px';
         img.classList.add('stickerClick', 'stickerFadeIn');
-        const randomRotation = Math.floor(Math.random() * 30) - 15;
-        img.style.transform = `rotate(${randomRotation}deg)`;
+        img.style.transform = `rotate(${rotation}deg)`;
 
         // Append the image to the body
-        document.body.appendChild(img);
-
-
+        $(background1 ? "#stickerContainer1" : "#stickerContainer2").append(img);
     }
 
-    handleClick(event) {        
-        const background1 = Math.floor(Math.pow(Math.random(), 5) * 2) !== 0;
+    getRandomRotation() {
+        return Math.floor(Math.random() * 30) - 15;
+    }
 
-        console.log(event.target.nodeName);
-        // Create a new image element
-        const img = document.createElement('div');
-        const randomIndex = Math.floor(Math.random() * this.stickerSources.length);
-        img.innerHTML = this.stickerSources[randomIndex];
-        img.style.left = event.pageX + 'px';
-        img.style.top = event.pageY + 'px';
+    getRandomSize(background1) {
         let randomSize = Math.floor(Math.random() * 20) + 20;
         if (background1) {
             randomSize = Math.floor(randomSize * 2);
         }
-        img.style.width = randomSize + 'px';
-        img.classList.add('stickerClick', 'stickerFadeIn');
-        const randomRotation = Math.floor(Math.random() * 30) - 15;
-        img.style.transform = `rotate(${randomRotation}deg)`;
 
-        img.setAttribute("data-rotation", event.pageY.toString());
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('stickerWrapper');
-        wrapper.appendChild(img);
-
-
-        // Append the image to the body
-        if(background1) {
-            $("#stickerContainer1").append(wrapper);
-        }
-        else {
-            $("#stickerContainer2").append(wrapper);
-        }
-
-        // Remove the image after 60 seconds
-        setTimeout(() => {
-            img.classList.add('stickerFadeOut');
-            img.addEventListener('animationend', () => {
-                document.body.removeChild(img);
-            });
-        }, 60 * 1000);
+        return randomSize;
     }
+  
 }
 
 export default StickerClick;

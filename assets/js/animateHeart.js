@@ -10,12 +10,11 @@ export default class AnimateHeart {
 
     addClickListeners() {
         this.heart.on("click", this.animateHeart.bind(this));
-        // var mouseDownTime = 0;
-        // this.heart.on("mousedo")
     }
 
     animateHeart() {
         console.log('clicked');
+        $('#heartVector').addClass('animated');
         anime({
             targets: "#heartVector",
             keyframes: [
@@ -27,6 +26,9 @@ export default class AnimateHeart {
                 {value: -100, duration: 1000, easing: 'easeOutQuint'},
                 {value: 0, duration: 800, easing: function (el, i, total) {return this.easeOutBounce}.bind(this)}, //'easeOutElastic(1, .6)'
             ],
+            complete: function() {
+                $('#heartVector').removeClass('animated');
+            }
           });
     }
 
