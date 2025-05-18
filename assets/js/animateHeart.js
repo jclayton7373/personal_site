@@ -1,5 +1,3 @@
-import anime from 'https://cdn.skypack.dev/animejs';
-
 export default class AnimateHeart {
     constructor() {
         this.heart = $('#heartVector');

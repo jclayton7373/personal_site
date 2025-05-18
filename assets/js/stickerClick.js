@@ -31,6 +31,17 @@ class StickerClick {
         this.placeRandomStickers();
         this.repositionStickers();
         window.addEventListener('scroll', this.repositionStickers);
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.clearStickers();
+                this.placeRandomStickers();
+                this.repositionStickers();
+            }, 100);
+        }
+        );
     }
 
     repositionStickers() {
@@ -119,6 +130,12 @@ class StickerClick {
         }
 
         return randomSize;
+    }
+
+    clearStickers() {
+        $(".stickerClick").fadeOut(300, function() {
+            $(this).remove();
+        });
     }
   
 }

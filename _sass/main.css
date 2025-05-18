@@ -435,28 +435,25 @@ svg.initials {
 }
 
 .stickerClick {
-  position: absolute;
+  position: fixed;
   filter: opacity(0.3);
 }
 .stickerClick svg {
   transform: translate(-50%, -50%);
   fill: var(--accent-color-3);
   stroke: var(--accent-color-1);
-}
-
-.stickerWrapper {
-  will-change: transform;
+  cursor: default;
 }
 
 #stickerContainer1 {
-  position: relative;
+  will-change: transform;
 }
 #stickerContainer1 .stickerClick {
   filter: opacity(0.2);
 }
 
 #stickerContainer2 {
-  position: relative;
+  will-change: transform;
 }
 #stickerContainer2 .stickerClick {
   filter: opacity(0.4);
