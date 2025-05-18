@@ -32,7 +32,13 @@ class StickerClick {
         this.repositionStickers();
         window.addEventListener('scroll', this.repositionStickers);
 
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
+        var hasTouchScreen = false;
+
+        if ("maxTouchPoints" in navigator) {
+            hasTouchScreen = navigator.maxTouchPoints > 0;
+        } 
+
+        if (hasTouchScreen) {
             let resizeTimeout;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimeout);
@@ -44,7 +50,6 @@ class StickerClick {
             }
             );
         }
-
     }
 
     repositionStickers() {
