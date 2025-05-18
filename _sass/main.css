@@ -445,18 +445,14 @@ svg.initials {
   cursor: default;
 }
 
-#stickerContainer1 {
-  will-change: transform;
-}
 #stickerContainer1 .stickerClick {
   filter: opacity(0.2);
-}
-
-#stickerContainer2 {
   will-change: transform;
 }
+
 #stickerContainer2 .stickerClick {
   filter: opacity(0.4);
+  will-change: transform;
 }
 
 .socialLink {

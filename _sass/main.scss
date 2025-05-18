@@ -539,18 +539,16 @@ svg {
 }
 
 #stickerContainer1 {
-    will-change: transform;
-
     .stickerClick {
         filter: opacity(0.2);
+        will-change: transform;
     }
 }
 
 #stickerContainer2 {
-    will-change: transform;
-
     .stickerClick {
         filter: opacity(0.4);
+        will-change: transform;
     }
 }
 

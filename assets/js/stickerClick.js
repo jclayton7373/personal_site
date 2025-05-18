@@ -32,21 +32,24 @@ class StickerClick {
         this.repositionStickers();
         window.addEventListener('scroll', this.repositionStickers);
 
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                this.clearStickers();
-                this.placeRandomStickers();
-                this.repositionStickers();
-            }, 100);
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    this.clearStickers();
+                    this.placeRandomStickers();
+                    this.repositionStickers();
+                }, 100);
+            }
+            );
         }
-        );
+
     }
 
     repositionStickers() {
-        $("#stickerContainer1").css("transform", `translate(0px,${window.scrollY / 3}px)`);
-        $("#stickerContainer2").css("transform", `translate(0px,${window.scrollY / 5}px)`);
+        $("#stickerContainer1 .stickerClick").css("transform", `translate(0px,-${window.scrollY / 7}px)`);
+        $("#stickerContainer2 .stickerClick").css("transform", `translate(0px,-${window.scrollY / 4}px)`);
     }
 
     getGutterWidths() {
