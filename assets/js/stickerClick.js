@@ -32,24 +32,20 @@ class StickerClick {
         this.repositionStickers();
         window.addEventListener('scroll', this.repositionStickers);
 
-        var hasTouchScreen = false;
-
-        if ("maxTouchPoints" in navigator) {
-            hasTouchScreen = navigator.maxTouchPoints > 0;
-        } 
-
-        if (hasTouchScreen) {
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    this.clearStickers();
-                    this.placeRandomStickers();
-                    this.repositionStickers();
-                }, 100);
+        let resizeTimeout;
+        let width = $(document).width();
+        window.addEventListener('resize', () => {
+            if ($(document).width() === width) {
+                return;
             }
-            );
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.clearStickers();
+                this.placeRandomStickers();
+                this.repositionStickers();
+            }, 100);
         }
+        );
     }
 
     repositionStickers() {
