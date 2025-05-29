@@ -527,7 +527,7 @@ svg {
 }
 
 .stickerClick {
-    position: fixed;
+    position: relative;
     filter: opacity(0.3);
 
     svg {
@@ -539,6 +539,8 @@ svg {
 }
 
 #stickerContainer1 {
+    position: fixed;
+
     .stickerClick {
         filter: opacity(0.2);
         will-change: transform;
@@ -546,6 +548,8 @@ svg {
 }
 
 #stickerContainer2 {
+    position: fixed;
+    
     .stickerClick {
         filter: opacity(0.4);
         will-change: transform;
